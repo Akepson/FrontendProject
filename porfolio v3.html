@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akepson — Computer Science Student & Future AI Engineer</title>
+    <meta name="description" content="Portfolio of Akepson, Computer Science student at RPTU Kaiserslautern, Germany. Projects in Java, Spring Boot, Web Development and AI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Importation de FontAwesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ============ DESIGN TOKENS ============ */
+        :root{
+            --blue:#3b82f6;
+            --blue-light:#60a5fa;
+            --blue-dark:#2563eb;
+        }
+        [data-theme="dark"]{
+            --bg:#0a0e1a;
+            --bg-2:#0f1526;
+            --bg-3:#141c33;
+            --card:#111a30;
+            --card-border:#1e2a47;
+            --text:#e6ecf7;
+            --text-muted:#8fa3c4;
+            --shadow:0 10px 30px rgba(2,6,18,.55);
+            --nav-bg:rgba(10,14,26,.82);
+            --glow:0 0 40px rgba(59,130,246,.18);
+        }
+        [data-theme="light"]{
+            --bg:#f4f7fd;
+            --bg-2:#ffffff;
+            --bg-3:#eef3fb;
+            --card:#ffffff;
+            --card-border:#dbe5f5;
+            --text:#12203a;
+            --text-muted:#5b7194;
+            --shadow:0 10px 30px rgba(18,32,58,.10);
+            --nav-bg:rgba(244,247,253,.85);
+            --glow:0 0 40px rgba(59,130,246,.12);
+        }
+
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;}
+        body{
+            font-family: 'Poppins', Arial, Helvetica, sans-serif;
+            background:var(--bg);
+            color:var(--text);
+            line-height:1.7;
+            transition:background .4s ease,color .4s ease;
+            overflow-x:hidden;
+        }
+        ::selection{background:var(--blue);color:#fff;}
+
+        /* ============ NAVBAR ============ */
+        nav{
+            position:fixed;top:0;left:0;right:0;z-index:100;
+            display:flex;align-items:center;justify-content:space-between;
+            padding:1rem 6%;
+            background:var(--nav-bg);
+            backdrop-filter:blur(14px);
+            -webkit-backdrop-filter:blur(14px);
+            border-bottom:1px solid var(--card-border);
+            transition:background .4s ease;
+        }
+        .logo{font-size:1.35rem;font-weight:700;letter-spacing:.5px;}
+        .logo span{color:var(--blue-light);}
+        .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+        .nav-links a{
+            color:var(--text-muted);text-decoration:none;font-size:.95rem;font-weight:500;
+            position:relative;transition:color .25s;
+        }
+        .nav-links a::after{
+            content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;
+            background:var(--blue-light);border-radius:2px;transition:width .3s ease;
+        }
+        .nav-links a:hover,.nav-links a.active{color:var(--text);}
+        .nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+
+        /* theme toggle */
+        .theme-toggle{
+            cursor:pointer;background:var(--card);border:1px solid var(--card-border);
+            border-radius:50%;width:40px;height:40px;display:grid;place-items:center;
+            font-size:1.05rem;transition:transform .3s,border-color .3s;color:var(--text);
+        }
+        .theme-toggle:hover{transform:rotate(25deg) scale(1.08);border-color:var(--blue);}
+
+        /* hamburger */
+        .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
+        .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
+        .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+        .hamburger.open span:nth-child(2){opacity:0;}
+        .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+        /* ============ HERO ============ */
+        .hero{
+            min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;
+            align-items:center;gap:3rem;padding:8rem 6% 4rem;
+            background:
+                    radial-gradient(800px 400px at 80% 10%,rgba(59,130,246,.10),transparent 60%),
+                    radial-gradient(600px 400px at 10% 90%,rgba(59,130,246,.07),transparent 60%),
+                    var(--bg);
+        }
+        .hero h1{font-size:clamp(2.4rem,5vw,3.
